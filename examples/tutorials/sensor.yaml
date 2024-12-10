@@ -29,5 +29,5 @@ spec:
                     container:
                       image: busybox
                       command: [sh, -c]
-                      args: ["echo 'GitHub webhook received and done!'"]
+                      args: ["echo 'GitHub webhook received and done !'"]
 
