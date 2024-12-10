@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: github-webhook
+  namespace: argo-events
+spec:
+  github:
+    example:
+      owner: "kristinavillanueva"          # Required: GitHub username or organization name
+      repository: argo-events       # Required: GitHub repository name
+      events:
+        - push                              # Events to listen to (e.g., push, pull_request)
+      webhook:
+        endpoint: /webhook                  # Path for the webhook
+        port: "12000"                       # Port the webhook will listen on
+      secret:
+        name: webhook-secret                # Kubernetes secret containing the webhook secret
+        key: your-secret                         # Key in the secret containing the value
+
